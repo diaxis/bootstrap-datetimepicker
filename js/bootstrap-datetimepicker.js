@@ -332,7 +332,7 @@
       }
       this.isVisible = true;
       this.element.trigger({
-        type: 'showDatetimePicker',
+        type: 'show',
         date: this.date
       });
     },
@@ -358,7 +358,7 @@
         this.setValue();
       this.isVisible = false;
       this.element.trigger({
-        type: 'hideDatetimePicker',
+        type: 'hide',
         date: this.date
       });
     },
@@ -674,7 +674,7 @@
         var actual = UTCDate(year, month, dayMonth, i);
         clsName = '';
         // We want the previous hour for the startDate
-        if ((actual.valueOf() + 90) <= this.startDate || actual.valueOf() > this.endDate) {
+        if ((actual.valueOf() + 90000) <= this.startDate || actual.valueOf() > this.endDate) {
           clsName += ' disabled';
         } else if (hours == i) {
           clsName += ' active';
@@ -1816,7 +1816,7 @@
       if ($this.data('datetimepicker')) return;
       e.preventDefault();
       // component click requires us to explicitly show it
-      $this.datetimepicker('showDatetimePicker');
+      $this.datetimepicker('show');
     }
   );
   $(function () {
